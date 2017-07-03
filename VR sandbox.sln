@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2015
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VR sandbox", "VR sandbox.csproj", "{33D4F676-4313-CD67-0460-8BCFCBAAEBD0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VR sandbox.Editor", "VR sandbox.Editor.csproj", "{5D26C54A-A1ED-5A91-FE42-0F62CA3272CE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{33D4F676-4313-CD67-0460-8BCFCBAAEBD0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33D4F676-4313-CD67-0460-8BCFCBAAEBD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33D4F676-4313-CD67-0460-8BCFCBAAEBD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33D4F676-4313-CD67-0460-8BCFCBAAEBD0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D26C54A-A1ED-5A91-FE42-0F62CA3272CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D26C54A-A1ED-5A91-FE42-0F62CA3272CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D26C54A-A1ED-5A91-FE42-0F62CA3272CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D26C54A-A1ED-5A91-FE42-0F62CA3272CE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
