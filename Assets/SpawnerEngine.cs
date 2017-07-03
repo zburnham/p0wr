@@ -6,7 +6,7 @@ public class SpawnerEngine : MonoBehaviour {
 
     public static SpawnerEngine Instance;
 
-    public GameObject spawnObject;
+    //public GameObject spawnObject;
     public Spawner spawner;
 
     private void Awake()
@@ -25,9 +25,9 @@ public class SpawnerEngine : MonoBehaviour {
         }
     }
 
-    public GameObject SpawnObject()
+    public void SpawnObject()
     {
-        return spawner.Spawn();
+        spawner.Spawn();
         //logic here for any trailers
     }
 	// Use this for initialization

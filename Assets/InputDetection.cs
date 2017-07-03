@@ -39,7 +39,7 @@ public class InputDetection : MonoBehaviour
         _controller.TriggerUnclicked += HandleTriggerUnclicked;
         _controller.Gripped += HandleTriggerClicked;
         _controller.Ungripped += HandleTriggerUnclicked;
-        _device = SteamVR_Controller.Input((int)_controller.controllerIndex);
+        //_device = SteamVR_Controller.Input((int)_controller.controllerIndex);
         SpawnerEngine = GetComponent<SpawnerEngine>();
 
     }
@@ -55,6 +55,7 @@ public class InputDetection : MonoBehaviour
     public void HandleTriggerClicked(object sender, ClickedEventArgs e)
     {
         _isClicked = true;
+        SpawnerEngine.SpawnObject();
     }
 
     public void HandleTriggerUnclicked(object sender, ClickedEventArgs e)
@@ -65,21 +66,6 @@ public class InputDetection : MonoBehaviour
         _zipping = true;
     }
     
-    /*public void SpawnCube()
-    {
-        //Debug.Log(_controller.transform.position.y);
-        GameObject newlySpawnedObject = Instantiate(
-            spawnedObject, new Vector3(
-                (float)_trackedObject.transform.localPosition.x,
-                (float)_trackedObject.transform.localPosition.y - 0.1f,
-                (float)_trackedObject.transform.localPosition.z
-            ), transform.rotation
-        );
-
-        GameObject newlySpawnedObject = Instantiate(spawnedObject);
-        
-        trailingObjects.Add(newlySpawnedObject);
-    } */
     // Use this for initialization
     void Start()
     {
@@ -92,29 +78,26 @@ public class InputDetection : MonoBehaviour
         if (_isClicked)
         {
             _trackedObject = GetComponent<SteamVR_TrackedObject>();
-            _device = SteamVR_Controller.Input((int)_trackedObject.index);
+           _device = SteamVR_Controller.Input((int)_controller.controllerIndex);
             
-            //Debug.Log("It's clicked");
             _elapsedTime++;
-            //Debug.Log("elapsedTime is " + _elapsedTime);
-            //Debug.Log((int)trackedObject.index);
 
             if (_elapsedTime >= spawnDelay)
             {
                 
                 _device.TriggerHapticPulse(250);
                 SpawnerEngine.SpawnObject();
-                if (trailingObjects.Count >= numberOfObjectsTrailing)
+                /*if (trailingObjects.Count >= numberOfObjectsTrailing)
                 {
                     GameObject toDestroy = trailingObjects[0];
                     Destroy(toDestroy);
                     trailingObjects.RemoveAt(0);
-                }
+                }*/
                 _elapsedTime = 0;
             }
 
             _currentSnapBackDelay++;
-            if (_currentSnapBackDelay >= snapBackSpeed + 1 && _zipping == true)
+           /* if (_currentSnapBackDelay >= snapBackSpeed + 1 && _zipping == true)
             {
                 GameObject toZipUp = trailingObjects[0];
                 Destroy(toZipUp);
@@ -123,7 +106,7 @@ public class InputDetection : MonoBehaviour
                 {
                     _zipping = false;
                 } 
-            }
+            }*/
             
         }
     }

@@ -16,8 +16,10 @@ public class Spawner : MonoBehaviour {
 		
 	}
 
-    public GameObject Spawn()
+    public void Spawn()
     {
-        return Instantiate(ObjectToSpawn);
+        Debug.Log("Spawn called");
+        GameObject newObject = Instantiate(ObjectToSpawn);
+        newObject.transform.SetParent(null);
     }
 }
