@@ -20,6 +20,7 @@ public class Spawner : MonoBehaviour {
     {
         Debug.Log("Spawn called");
         GameObject newObject = Instantiate(ObjectToSpawn);
-        newObject.transform.SetParent(null);
+        newObject.transform.parent = null;
+        newObject.transform.position = transform.position;
     }
 }
