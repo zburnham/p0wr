@@ -25,8 +25,8 @@ public class SpawnCube : MonoBehaviour {
     void Start()
     {
         device = GetComponent<SteamVR_TrackedController>();
-        device.TriggerClicked += spawner.HandleTriggerClicked;
-        device.TriggerUnclicked += spawner.HandleTriggerUnclicked;
+        //device.TriggerClicked += spawner.HandleTriggerClicked;
+        //device.TriggerUnclicked += spawner.HandleTriggerUnclicked;
     }
 
     /*void Update ()

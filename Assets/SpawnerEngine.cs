@@ -30,6 +30,11 @@ public class SpawnerEngine : MonoBehaviour {
         spawner.Spawn();
         //logic here for any trailers
     }
+
+    public void Zip()
+    {
+        spawner.Zip();
+    }
 	// Use this for initialization
 	void Start () {
 		

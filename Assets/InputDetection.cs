@@ -35,10 +35,10 @@ public class InputDetection : MonoBehaviour
         _controller = GetComponent<SteamVR_TrackedController>();
         _trackedObject = GetComponent<SteamVR_TrackedObject>();
 
-        _controller.TriggerClicked += HandleTriggerClicked;
-        _controller.TriggerUnclicked += HandleTriggerUnclicked;
-        _controller.Gripped += HandleTriggerClicked;
-        _controller.Ungripped += HandleTriggerUnclicked;
+        //_controller.TriggerClicked += HandleTriggerClicked;
+        //_controller.TriggerUnclicked += HandleTriggerUnclicked;
+        _controller.Gripped += HandleGripped;
+        _controller.Ungripped += HandleUngripped;
         //_device = SteamVR_Controller.Input((int)_controller.controllerIndex);
         SpawnerEngine = GetComponent<SpawnerEngine>();
 
@@ -52,18 +52,18 @@ public class InputDetection : MonoBehaviour
 
     #region Spawning
 
-    public void HandleTriggerClicked(object sender, ClickedEventArgs e)
+    public void HandleGripped(object sender, ClickedEventArgs e)
     {
         _isClicked = true;
         SpawnerEngine.SpawnObject();
     }
 
-    public void HandleTriggerUnclicked(object sender, ClickedEventArgs e)
+    public void HandleUngripped(object sender, ClickedEventArgs e)
     {
         _isClicked = false;
         _elapsedTime = 0;
 
-        _zipping = true;
+        SpawnerEngine.Zip();
     }
     
     // Use this for initialization

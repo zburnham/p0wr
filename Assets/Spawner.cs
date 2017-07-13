@@ -5,6 +5,9 @@ using UnityEngine;
 public class Spawner : MonoBehaviour {
 
     public GameObject ObjectToSpawn;
+    public int TrailingObjectsLimit = 50;
+
+    public List<GameObject> TrailingObjects = new List<GameObject>();
 
 	// Use this for initialization
 	void Start () {
@@ -18,9 +21,31 @@ public class Spawner : MonoBehaviour {
 
     public void Spawn()
     {
-        Debug.Log("Spawn called");
+        //Debug.Log("Spawn called");
         GameObject newObject = Instantiate(ObjectToSpawn);
         newObject.transform.parent = null;
         newObject.transform.position = transform.position;
+        TrailingObjects.Add(newObject);
+        LimitObjects();
+    }
+
+    public void LimitObjects()
+    {
+        if (TrailingObjects.Count >= TrailingObjectsLimit)
+        {
+            Destroy(TrailingObjects[0]);
+            TrailingObjects.RemoveAt(0);
+        }
+    }
+
+    public void Zip()
+    {
+        TrailingObjects.ForEach(Remove);
+    }
+
+    private void Remove(GameObject myObject)
+    {
+        Destroy(myObject);
+        TrailingObjects.Remove(myObject);
     }
 }
